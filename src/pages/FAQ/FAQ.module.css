@@ -24,7 +24,7 @@ h1 {
 .footer {
   display: flex;
   width: 100vw;
-  position: fixed;
+  position: static;
   bottom: 0;
   background: #0f1923;
   height: 8.5rem;
