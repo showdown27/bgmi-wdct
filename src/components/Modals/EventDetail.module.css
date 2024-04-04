@@ -119,15 +119,41 @@ h4 {
   .modalfooter button {
     scale: 0.9;
   }
+
   .container {
     display: block;
     justify-content: center;
     align-items: center;
     margin: 15px;
   }
+  .rows1 h4 {
+    font-size: 1.5rem;
+  }
+  .rows2 h4 {
+    font-size: 1.5rem;
+  }
   .rows3 h4 {
-    font-size: 16px;
+    font-size: 1.5rem;
+  }
+  .rows4 h4 {
+    font-size: 1.5rem;
   }
 }
-@media (max-width: 400px) {
+@media (max-width: 1000px) {
+  .rows1 h4{
+    font-size: 1.75rem;
+  }
+  .rows2 h4{
+    font-size: 1.75rem;
+  }
+  .rows3 h4{
+    font-size: 1.75rem;
+  }
+  .rows4 h4{
+    font-size: 1.75rem;
+  }
+  .container{
+    margin: 1px;
+  }
+  
 }
