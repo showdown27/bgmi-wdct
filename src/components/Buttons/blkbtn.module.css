@@ -1,0 +1,31 @@
+:root {
+  --btn1: #eca800 ;
+  --btn2: #d49700;
+  --textblack: black;
+  
+}
+
+.Blkbtn {
+  background: var(--btn1);
+  color: var(--textblack);
+  text-decoration: none;
+  font-family: bgmi;
+  font-size: 1.75rem;
+  letter-spacing: 0.2rem;
+  font-weight: 800;
+  padding: 1rem 1rem;
+  transition: 0.3s;
+  /* border: 2px solid var(--borderColour); */
+  outline: none;
+  border: none;
+  margin: 20px;
+}
+.Blkbtn:hover {
+  background-color: var(--btn2);
+}
+
+@media (max-width: 330px) {
+ .Blkbtn{
+  font-size: 1.30rem;
+ }
+}
