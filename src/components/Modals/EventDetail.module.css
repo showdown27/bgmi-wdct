@@ -36,6 +36,7 @@ h4 {
 .modalfooter {
   background-color: var(--modalbg);
 }
+
 .eventHead {
   color: var(--textColorW);
 }
@@ -156,4 +157,12 @@ h4 {
     margin: 1px;
   }
   
+}
+@media (max-width: 390px)
+
+{
+  .modalfooter button {
+    margin: 0;
+  }
+
 }
