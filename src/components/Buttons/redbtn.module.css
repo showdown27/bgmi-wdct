@@ -1,0 +1,29 @@
+
+:root {
+  --btn1: #eca800 ;
+  --btn2: #d49700;
+  --textblack: black;
+  --hover1: #f92e3e;
+}
+.Redbtn {
+  background: var(--btn1);
+  color: var(--textblack);
+  text-decoration: none;
+  font-family: bgmi;
+  font-size: 1.75rem;
+  letter-spacing: 0.2rem;
+  font-weight: 600;
+  padding: 1rem 1.5rem;
+  transition: 0.3s;
+  /* border: 2px solid var(--borderColour); */
+  outline: none;
+  border: none;
+}
+.Redbtn:hover {
+  background: var(--btn2);
+}
+@media (max-width: 330px) {
+ .Redbtn{
+  font-size: 1.30rem;
+ }
+}

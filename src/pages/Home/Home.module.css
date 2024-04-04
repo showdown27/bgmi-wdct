@@ -1,0 +1,46 @@
+@font-face {
+    font-family: bgmi;
+    src: url(../../assets/fonts/bgmi.ttf) format(truetype);
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+::selection {
+  color: black;
+  background: #eca800;
+}
+.main h1 {
+    color: #530c0a;
+    font-family: bgmi;
+    font-size: 9rem;
+    text-align: center;
+}
+
+@media screen and (max-width: 1024px){
+    .main h1{
+        font-size: 7rem;
+    }
+}
+
+@media screen and (max-width:778px) {
+    .main h1 {
+        font-size: 5.8rem;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .main h1 {
+        font-size: 4.9rem;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .main h1 {
+        font-size: 3.9rem;
+    }
+}
