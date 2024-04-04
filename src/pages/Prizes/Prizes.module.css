@@ -108,3 +108,11 @@ h2 {
     width: 100%;
   }
 }
+@media (max-width:420px) {
+  .footer button {
+  scale: .75;
+  margin: 0;
+}
+
+
+}

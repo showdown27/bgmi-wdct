@@ -2,41 +2,44 @@ import React from "react";
 import contactcss from "../Contact/Contact.module.css";
 import cardImg from "../../assets/imgs/arhn.jpg";
 import { Navbar } from "../../components/Navbar/Navbar";
+import Saikat from "../../assets/imgs/Saikat Sarkar.jpg";
+import Rishav from "../../assets/imgs/Rishav Jha.jpg";
+import Arya from "../../assets/imgs/Arya Sah.jpg";
+import Somwrik from "../../assets/imgs/Somwrik Dubey.jpg";
 import { Card } from "../../components/Card";
 import EventDetails from "../../components/Modals/EventDetails";
 import Register from "../../components/Modals/Register";
 
 const cardItems = [
   {
-    img: cardImg,
+    img: Saikat,
     title: "Saikat Sarkar",
-    linkedin: "https://evaboot.com/blog/linkedin-url-example",
-    instagram: "https://evaboot.com/blog/linkedin-url-example",
-    twitter: "https://evaboot.com/blog/linkedin-url-example",
+    linkedin: "https://www.linkedin.com/in/saikat-sarkar-395785205/",
+    instagram: "https://www.instagram.com/_saikxx_/",
+    twitter: "#",
   },
   {
-    img: cardImg,
+    img: Arya,
     title: "Arya Sah",
-    linkedin: "https://evaboot.com/blog/linkedin-url-example",
-    instagram: "https://evaboot.com/blog/linkedin-url-example",
-    twitter: "https://evaboot.com/blog/linkedin-url-example",
+    linkedin: "https://www.linkedin.com/in/arya-sah/",
+    instagram: "https://www.instagram.com/aryasah30/",
+    twitter: "#",
   },
   {
-    img: cardImg,
+    img: Rishav,
     title: "Rishav Jha",
-    linkedin: "https://evaboot.com/blog/linkedin-url-example",
-    instagram: "https://evaboot.com/blog/linkedin-url-example",
-    twitter: "https://evaboot.com/blog/linkedin-url-example",
+    linkedin: "https://www.linkedin.com/in/rishav-devraj/",
+    instagram: "https://www.instagram.com/_d.e.v.r.a.j/",
+    twitter: "#",
   },
   {
-    img: cardImg,
+    img: Somwrik,
     title: "Somwrik Dubey",
-    linkedin: "https://evaboot.com/blog/linkedin-url-example",
-    instagram: "https://evaboot.com/blog/linkedin-url-example",
-    twitter: "https://evaboot.com/blog/linkedin-url-example",
+    linkedin: "https://www.linkedin.com/in/somwrik-dubey-8b35771ba/",
+    instagram: "https://www.instagram.com/somwrik.psd/",
+    twitter: "#e",
   },
 ];
-
 export const Contact = () => {
   return (
     <div className={contactcss.contact}>
