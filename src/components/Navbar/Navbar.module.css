@@ -112,6 +112,7 @@
     height: 100vh;
     padding-top: 60px;
     text-align: center;
+    z-index: 20;
   }
 
   .main_list.active {
