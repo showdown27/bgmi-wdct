@@ -32,23 +32,26 @@ export const FAQ = () => {
   const faqData = [
     {
       id: "1",
-      question: "What is the capital of France?",
-      para: "The capital of France is Paris.",
+      question: "What are the prerequisites for the tournament?",
+      para: "All participants are required to bring their own mobile devices with BattleGrounds Mobile India (BGMI) pre-installed. Additionally, participants are responsible for bringing their own gaming peripherals as they will not be provided at the event.",
     },
     {
       id: "2",
-      question: "What is the capital of China?",
-      para: "The capital of China is Beijing.",
+      question:
+        "Will internet connection be provided or do I have to use my own network?",
+      para: "Yes, high speed internet connection will be provided throughout the duration of the tournament.",
     },
     {
       id: "3",
-      question: "What is the capital of India?",
-      para: "The capital of India is New Delhi.",
+      question:
+        "Can I compete as part of a team or do I have to compete individually?",
+      para: "There will be a team of 4 players.Each team leader will ensure the seamless coordination of their team's registration and payment process.",
     },
     {
       id: "4",
-      question: "What is the capital of West Indies?",
-      para: "The capital of West Indies is Kingston.",
+      question:
+        "Is there a minimum rank or skill level required to participate in the BGMI tournament?",
+      para: "All players, regardless of their rank or skill level, are welcome to participate in the tournament.",
     },
   ];
 

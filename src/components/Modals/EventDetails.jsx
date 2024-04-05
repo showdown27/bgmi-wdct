@@ -33,18 +33,18 @@ function MyVerticallyCenteredModal(props) {
           </div>
           <div className={Eventcss.eventDetails}>
             <div className={Eventcss.rows1}>
-              <h4 className={Eventcss.ReventDet}>MATCH TYPE -  </h4>
-              <h4 className={Eventcss.WeventDet}> LOREN IPSUM</h4>
+              <h4 className={Eventcss.ReventDet}>MATCH TYPE  </h4>
+              <h4 className={Eventcss.WeventDet}>- COMPETITIVE</h4>
             </div>
             <div className={Eventcss.rows2}>
-              <h4 className={Eventcss.ReventDet}>VENUE - </h4>
-              <h4 className={Eventcss.WeventDet}> NAB 601</h4>
+              <h4 className={Eventcss.ReventDet}>VENUE </h4>
+              <h4 className={Eventcss.WeventDet}>- NAB 401</h4>
             </div>
             <div className={Eventcss.rows3}>
-              <h4 className={Eventcss.ReventDet}>TIME - </h4>
+              <h4 className={Eventcss.ReventDet}>TIME </h4>
               <h4 className={Eventcss.WeventDet}>
                 {" "}
-                10:00 PM - 3:00 AM 8th April ‘24
+                - 10:00 AM - 6:00 PM 9th April 2024
               </h4>
             </div>
             <div className={Eventcss.rows4}>
@@ -52,14 +52,12 @@ function MyVerticallyCenteredModal(props) {
             </div>
             <div>
               <p className={Eventcss.descrip}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-                vel justo eget sapien aliquet vehicula. Nullam sit amet felis
-                eget nulla fermentum cursus. Cras condimentum ipsum vitae purus
-                malesuada, id suscipit nisi ultricies. Sed id metus ac justo
-                mollis consectetur. Proin id ante sed velit aliquet tempus.
-                Nulla facilisi. Curabitur hendrerit, leo eu fringilla
-                vestibulum, risus eros consequat eros, vitae molestie lorem
-                ipsum in elit.{" "}
+                "Every setback is an opportunity to level up". Join us for an
+                exhilarating experience as Team Aavishkar presents the highly
+                anticipated BattleGrounds Mobile India (BGMI) Tournament at
+                Aarohan 2024. It's time to demonstrate your gaming prowess and
+                go head-to-head with fellow college gamers. Gear up for the
+                ultimate gaming showdown!
               </p>
             </div>
           </div>
