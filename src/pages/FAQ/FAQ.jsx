@@ -33,7 +33,7 @@ export const FAQ = () => {
     {
       id: "1",
       question: "What are the prerequisites for the tournament?",
-      para: "All participants are required to bring their own mobile devices with BattleGrounds Mobile India (BGMI) pre-installed. Additionally, participants are responsible for bringing their own gaming peripherals as they will not be provided at the event.",
+      para: "All participants are required to bring their own mobile devices with BattleGrounds Mobile India 'BGMI' pre installed. Additionally, participants are responsible for bringing their own gaming peripherals as they will not be provided at the event.",
     },
     {
       id: "2",
@@ -45,7 +45,7 @@ export const FAQ = () => {
       id: "3",
       question:
         "Can I compete as part of a team or do I have to compete individually?",
-      para: "There will be a team of 4 players.Each team leader will ensure the seamless coordination of their team's registration and payment process.",
+      para: "You can opt to participate either on your own or  as part of a team in BGMI. If you decide to join a team, each member needs to register separately. Once all members have registered, we'll assemble your team. Furthermore, all competition updates will be communicated through WhatsApp.",
     },
     {
       id: "4",

@@ -3,7 +3,7 @@ import { Navbar } from "../../components/Navbar/Navbar";
 import prizecss from "./Prizes.module.css";
 import cardImg from "../../assets/imgs/cca.png";
 import { Card } from "../../components/Card";
-import CashPrize from "../../assets/imgs/cash_prize.webp";
+import CashPrize from "../../assets/imgs/prizes.jpg";
 import EventDetails from "../../components/Modals/EventDetails";
 import Register from "../../components/Modals/Register";
 import AarohanTshirt from "../../assets/imgs/arhn_tshirt.jpeg";
