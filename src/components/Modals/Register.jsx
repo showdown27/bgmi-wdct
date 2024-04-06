@@ -1,6 +1,6 @@
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import CloseButton from "react-bootstrap/CloseButton";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
@@ -13,10 +13,16 @@ import Redbtn from "../Buttons/redBtn";
 import EventDetails from "./EventDetails";
 import Registercss from "./Register.module.css";
 import { Spinner } from "react-bootstrap";
+import ReCAPTCHA from "react-google-recaptcha";
+const SITE_KEY = "6LfDoLEpAAAAAI3LGKc65_BVrEF6FnLgby2uNFv-";
 //modal body for api
 
 function MyVerticallyCenteredModal(props) {
   const [fullName, setFullName] = useState("");
+  const [isCaptchaVerified, setIsCaptchaVerified] = useState({
+    captcha: false,
+    g_captch_response: "",
+  });
 
   const [email, setEmail] = useState("");
 
@@ -202,6 +208,7 @@ function MyVerticallyCenteredModal(props) {
       contact_number: contactNum,
 
       payment: payment,
+      "g-captcha-response": isCaptchaVerified.g_captch_response,
     };
 
     console.log("form Data", formData);
@@ -239,9 +246,17 @@ function MyVerticallyCenteredModal(props) {
   //form submit
 
   console.log(isOpen);
+  
+  function onChange(value) {
+    console.log("Captcha value:", value);
+    setIsCaptchaVerified({
+      captcha: true,
+      g_captch_response: value,
+    });
+  }
   return (
     <>
-      <ToastContainer className={Registercss.toast} theme="dark" />
+      <ToastContainer className={Registercss.toast1} theme="dark" />
       <Modal
         {...props}
         size="lg"
@@ -250,7 +265,7 @@ function MyVerticallyCenteredModal(props) {
       >
         <Modal.Header className={Registercss.modalheader}>
           <Modal.Title id="contained-modal-title-vcenter">
-            <h1 style={{color: "white"}}>Register</h1>
+            <h1 style={{ color: "white" }}>Register</h1>
           </Modal.Title>
           <CloseButton
             className={Registercss.Closebtn}
@@ -268,7 +283,7 @@ function MyVerticallyCenteredModal(props) {
                     controlId="formGridEmail"
                   >
                     <Form.Label>
-                      <h4>TEAM NAME</h4>
+                      <h4>NAME</h4>
                     </Form.Label>
                     <Form.Control
                       className={Registercss.formbg}
@@ -285,7 +300,6 @@ function MyVerticallyCenteredModal(props) {
                     </Form.Control.Feedback>
                   </Form.Group>
                 </Row>
-
                 <Row>
                   <Form.Group
                     className="col-12 col-md-12 col-lg-12 my-2 mb-4"
@@ -357,6 +371,11 @@ function MyVerticallyCenteredModal(props) {
                     </Form.Control.Feedback>
                   </Form.Group>
                 </Row>
+                <ReCAPTCHA
+                  className={Registercss.recaptcha}
+                  sitekey={SITE_KEY}
+                  onChange={onChange}
+                />
               </Form>
               ,
             </div>
@@ -369,7 +388,24 @@ function MyVerticallyCenteredModal(props) {
               }}
               className={Registercss.QrCode}
             >
-              <h5>Scan the QR to pay (Rs 149/-)</h5>
+              <h5>Scan the QR to pay</h5>
+              <h5
+                style={{
+                  display: "flex",
+                }}
+              >
+                {" "}
+                <p
+                  style={{
+                    textDecoration: "line-through",
+                    marginRight: 5,
+                  }}
+                >
+                  {" "}
+                  Rs 149
+                </p>
+                (Rs 100/-)
+              </h5>
               <img src={paymentQR} width={200} height={200} alt="Payment QR" />
             </div>
           </div>
@@ -387,7 +423,12 @@ function MyVerticallyCenteredModal(props) {
             </div>
           ) : (
             <div>
-              <Redbtn text="SUBMIT " type="submit" onClick={submitForm} />
+              <Redbtn
+                text="SUBMIT "
+                type="submit"
+                onClick={submitForm}
+                disabled={!isCaptchaVerified.captcha}
+              />
             </div>
           )}
         </Modal.Footer>

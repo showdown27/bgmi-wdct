@@ -3,7 +3,7 @@
   src: url(../../assets/fonts/bgmi.ttf) format(truetype);
 }
 .faqs{
-  height: 90vh;
+  height: 80vh;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -46,11 +46,11 @@ h1 {
   font-style: normal;
   border-radius: 10px;
   background-color: #ffffff;
-  font-size: 2rem;
+  font-size: 1.55rem;
   line-height: 2rem;
   margin-top: 0.5rem;
   margin-bottom: 0.8rem;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
 }
 
 .wrapper .collapsible {
@@ -116,13 +116,25 @@ h1 {
   right: 25px;
   top: 25px;
   background-image: url("../../assets/imgs/caret-up-solid.svg");
+
+}
+@media screen and (max-width: 1024px){
+   .wrapper .collapsible label {
+    font-size: 1.65rem;
+    padding: 15px;
+  }
+  .wrapper{
+    font-size: 1.55rem;
+  }
+
 }
 
 @media screen and (max-width: 768px) {
   .wrapper .collapsible label {
-    font-size: 1.5rem;
+    font-size: 1.45rem;
     padding: 15px;
   }
+
 
   .wrapper .collapsible label .arrow {
     right: 20px;
@@ -135,12 +147,15 @@ h1 {
     right: 20px;
     top: 20px;
   }
+  .wrapper{
+    font-size:1.40rem ;
+  }
 }
 
 
 @media screen and (max-width: 480px) {
   .wrapper .collapsible label {
-    /* font-size: 1.4rem; */
+    font-size: 1.4rem;
     padding: 10px;
 
   }
@@ -159,6 +174,9 @@ h1 {
     right: 15px;
     top: 15px;
   }
+  .wrapper{
+    font-size: 1.25rem;
+  }
 }
 
 @media (max-width: 675px) {
@@ -172,4 +190,5 @@ h1 {
  scale: .8;
   margin: 0
 
-}}
+}
+}

@@ -47,8 +47,8 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   /* backdrop-filter: blur(10px); */
-  justify-content: center;
-  justify-content: space-between;
+  
+  justify-content: space-around;
 }
 
 .card {
@@ -92,7 +92,7 @@ h2 {
   color: white;
   font-size: 1.5rem;
   font-weight: 500;
-  margin-top: 1.5rem;
+  margin-top: .6rem;
   letter-spacing: 2px;
 }
 .prizes {
