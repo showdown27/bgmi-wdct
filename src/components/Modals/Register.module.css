@@ -109,7 +109,7 @@ h4{
 .container {
   display: flex;
 }
-@media (max-width: 500px) {
+@media (max-width: 994px) {
   .container {
     display: block;
   }
