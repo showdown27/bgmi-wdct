@@ -16,28 +16,28 @@ const cardItems = [
     title: "Saikat Sarkar",
     linkedin: "https://www.linkedin.com/in/saikat-sarkar-395785205/",
     instagram: "https://www.instagram.com/_saikxx_/",
-    twitter: "#",
+    
   },
   {
     img: Arya,
     title: "Arya Sah",
     linkedin: "https://www.linkedin.com/in/arya-sah/",
     instagram: "https://www.instagram.com/aryasah30/",
-    twitter: "#",
+    
   },
   {
     img: Rishav,
     title: "Rishav Jha",
     linkedin: "https://www.linkedin.com/in/rishav-devraj/",
     instagram: "https://www.instagram.com/_d.e.v.r.a.j/",
-    twitter: "#",
+    
   },
   {
     img: Somwrik,
     title: "Somwrik Dubey",
     linkedin: "https://www.linkedin.com/in/somwrik-dubey-8b35771ba/",
     instagram: "https://www.instagram.com/somwrik.psd/",
-    twitter: "#e",
+    
   },
 ];
 export const Contact = () => {
