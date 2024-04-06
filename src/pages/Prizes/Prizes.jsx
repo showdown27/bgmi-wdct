@@ -19,6 +19,11 @@ const cardItems = [
     title: "2ND PRIZE",
     subtitle: "Certificate and Cash Prize",
   },
+  {
+    img: CashPrize,
+    title: "3RD PRIZE",
+    subtitle: "Certificate and Cash Prize",
+  },
 ];
 
 export const Prizes = () => {

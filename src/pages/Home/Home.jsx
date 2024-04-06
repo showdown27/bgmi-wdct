@@ -11,7 +11,7 @@ export const Home = () => {
         <Navbar />
         <div className={homecss.main}>
           <h1>INDIA KA BATTLEGROUNDS</h1>
-          <Timer eventDate={new Date(2024, 3, 10)} />
+          <Timer eventDate={new Date(2024, 3, 9)} />
         </div>
         <Footer />
       </div>
