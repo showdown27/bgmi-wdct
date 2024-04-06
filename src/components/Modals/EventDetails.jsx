@@ -34,21 +34,21 @@ function MyVerticallyCenteredModal(props) {
           <div className={Eventcss.eventDetails}>
             <div className={Eventcss.rows1}>
               <h4 className={Eventcss.ReventDet}>MATCH TYPE  </h4>
-              <h4 className={Eventcss.WeventDet}>- COMPETITIVE</h4>
+              <h4 className={Eventcss.WeventDet}>: COMPETITIVE</h4>
             </div>
             <div className={Eventcss.rows2}>
               <h4 className={Eventcss.ReventDet}>VENUE </h4>
-              <h4 className={Eventcss.WeventDet}>- NAB 401</h4>
+              <h4 className={Eventcss.WeventDet}>: NAB 401</h4>
             </div>
             <div className={Eventcss.rows3}>
               <h4 className={Eventcss.ReventDet}>TIME </h4>
               <h4 className={Eventcss.WeventDet}>
                 {" "}
-                - 10:00 AM - 6:00 PM 9th April 2024
+                : 10:00 AM ~ 6:00 PM 9th April 2024
               </h4>
             </div>
             <div className={Eventcss.rows4}>
-              <h4 className={Eventcss.ReventDet}>Description - </h4>
+              <h4 className={Eventcss.ReventDet}>Description : </h4>
             </div>
             <div>
               <p className={Eventcss.descrip}>

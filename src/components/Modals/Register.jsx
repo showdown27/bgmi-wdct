@@ -104,6 +104,7 @@ function MyVerticallyCenteredModal(props) {
               align="center"
               className="fw-bold"
               id={Registercss.congrats}
+              
             >
               Congratulations!
             </h2>
@@ -134,7 +135,7 @@ function MyVerticallyCenteredModal(props) {
       } else if (resType === "exists") {
         return (
           <>
-            <h1 className="gradient__text">Already Submitted !</h1>
+            <h1 className="gradient__text " style={{color: "#eca800"}}>Already Submitted !</h1>
             <p className="modal_right_p">
               You have already registered for Valorant Gaming 2024 with this
               account or mobile number. We will contact you very soon.
@@ -204,9 +205,7 @@ function MyVerticallyCenteredModal(props) {
     let formData = {
       email: email,
       name: fullName,
-
       contact_number: contactNum,
-
       payment: payment,
       "g-captcha-response": isCaptchaVerified.g_captch_response,
     };
@@ -217,7 +216,7 @@ function MyVerticallyCenteredModal(props) {
     var config = {
       method: "post",
       // url: "https://ccaaudition.ccanitd.in/api/auditions",
-      url: "https://ccaaudition.ccanitd.in/api/valorantgamingregistrionscc244b9737c2b6ef26bd0f7827653c9d27c10b7c",
+      url: "https://ccaaudition.ccanitd.in/api/bgmigamingregistrionscc244b9737c2b6ef26bd0f7827653c9d27c10b7c",
       headers: {
         "Content-Type": "multipart/form-data",
       },
