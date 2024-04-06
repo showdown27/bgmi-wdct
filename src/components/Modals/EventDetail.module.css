@@ -64,19 +64,23 @@ h4 {
 }
 .rows1 {
   display: flex;
+  gap: 1rem;
 }
 .rows2 {
   display: flex;
   margin-top: 20px;
+  gap: 1rem;
 }
 .rows3 {
   display: flex;
   margin-top: 20px;
+  gap: 1rem;
 }
 
 .rows4 {
   display: flex;
   margin-top: 20px;
+  gap: 1rem;
 }
 .eventDetail {
   display: flex;

@@ -3,24 +3,21 @@ import { Navbar } from "../../components/Navbar/Navbar";
 import prizecss from "./Prizes.module.css";
 import cardImg from "../../assets/imgs/cca.png";
 import { Card } from "../../components/Card";
+import CashPrize from "../../assets/imgs/cash_prize.webp";
 import EventDetails from "../../components/Modals/EventDetails";
 import Register from "../../components/Modals/Register";
+import AarohanTshirt from "../../assets/imgs/arhn_tshirt.jpeg";
 
 const cardItems = [
   {
-    img: cardImg,
+    img: AarohanTshirt,
     title: "1ST PRIZE",
-    subtitle: "blah blah blah",
+    subtitle: "Aarohan Tshirt Certificate and Cash Prize",
   },
   {
-    img: cardImg,
+    img: CashPrize,
     title: "2ND PRIZE",
-    subtitle: "blah blah blah",
-  },
-  {
-    img: cardImg,
-    title: "3RD PRIZE",
-    subtitle: "blah blah blah",
+    subtitle: "Certificate and Cash Prize",
   },
 ];
 
