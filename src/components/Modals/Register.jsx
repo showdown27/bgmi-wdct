@@ -109,8 +109,7 @@ function MyVerticallyCenteredModal(props) {
               Congratulations!
             </h2>
             <p className="modal_right_p">
-              We have successfully received your registration for Valorant
-              Gaming 2024. We will contact you very soon.
+              We have successfully received your registration for BGMI Gaming 2024. We will contact you very soon.
               <br />
               <br />
               Join the WhatsApp group if you haven't, through the link below for
@@ -118,7 +117,7 @@ function MyVerticallyCenteredModal(props) {
               <br />
               <br></br>
               <a
-                href="https://chat.whatsapp.com/HRjeqmPjE916fB95z2QQ3R"
+                href="https://chat.whatsapp.com/HiKleNJ58N50r5imSSWcIe"
                 target="blank"
                 style={{
                   textDecoration: "underline",
