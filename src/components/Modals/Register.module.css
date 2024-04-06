@@ -14,9 +14,11 @@ h1 {
 
 .ToastContainer {
   z-index: 10000;
+  position: fixed;
 }
-.toast {
+.toast{
   z-index: 10000 !important;
+  position: fixed;
 }
 h2 {
   font-family: bgmi;

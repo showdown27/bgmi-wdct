@@ -28,6 +28,23 @@
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root">
+    <!-- Loader component will be rendered here -->
+    <div class="cs-loader show"
+      style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 999; display: flex; align-items: center; justify-content: center; background: black; backdrop-filter: blur(8px); flex-direction: column;">
+      <div class="cs-loader__media" style="position: relative; max-width: 8rem; max-height: 8rem; margin-bottom: 1rem;">
+        <img loading="lazy" src="https://www.bigmpizza.com/static/media/loader.dcda44e4fa1c198431d4.gif" alt=""
+          style="max-width: 100%; max-height: 100%;">
+      </div>
+      <div class="waviy" style="color: #eca800; font-size: 2rem;">
+        <span>L</span>
+        <span>O</span>
+        <span>A</span>
+        <span>D</span>
+        <span>I</span>
+        <span>N</span>
+        <span>G</span>
+      </div>
+    </div>
   </div>
   <!--
       This HTML file is a template.
@@ -39,6 +56,30 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+  <script>
+    // Check if the loader has been shown before
+    var loaderShownBefore = localStorage.getItem("loaderShown");
+    if (!loaderShownBefore) {
+      // If not shown before, set a flag in localStorage and show the loader
+      localStorage.setItem("loaderShown", "true");
+
+      // Set a timer to hide the loader after 4000 milliseconds (4 seconds)
+      setTimeout(function () {
+        // Find the loader element by its class name and hide it
+        var loader = document.querySelector(".cs-loader");
+        if (loader) {
+          loader.style.display = "none";
+        }
+      },300000);
+    } else {
+      // If shown before, hide the loader immediately
+      var loader = document.querySelector(".cs-loader");
+      if (loader) {
+        loader.style.display = "none";
+      }
+    }
+  </script>
 </body>
 
 </html>
