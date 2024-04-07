@@ -44,7 +44,7 @@ function MyVerticallyCenteredModal(props) {
               <h4 className={Eventcss.ReventDet}>TIME: </h4>
               <h4 className={Eventcss.WeventDet}>
                 {" "}
-                 10:00 AM to 6:00 PM , 9th April 2024
+                 10:00 AM to 6:00 PM , 10th April 2024
               </h4>
             </div>
             <div className={Eventcss.rows4}>
