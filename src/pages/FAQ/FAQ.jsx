@@ -53,6 +53,12 @@ export const FAQ = () => {
         "Is there a minimum rank or skill level required to participate in the BGMI tournament?",
       para: "All players, regardless of their rank or skill level, are welcome to participate in the tournament.",
     },
+    {
+      id: "5",
+      question:
+        "We are not NIT Durgapur college students, can we still participate in the tournament?",
+      para: "Yes, the tournament is open to all students from any college or university. You are welcome to participate in the tournament. You can attend in online mode, no need to reach venue. Once you have registered, join the WhatsApp group to receive all competition updates.",
+    },
   ];
 
   return (
