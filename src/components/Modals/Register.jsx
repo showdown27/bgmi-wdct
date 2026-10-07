@@ -112,7 +112,7 @@ function MyVerticallyCenteredModal(props) {
               Congratulations!
             </h2>
             <p className="modal_right_p">
-              We have successfully received your registration for BGMI Gaming 2024. We will contact you very soon.
+              We have successfully received your registration for BGMI Gaming 2026. We will contact you very soon.
               <br />
               <br />
               Join the WhatsApp group if you haven't, through the link below for
@@ -139,7 +139,7 @@ function MyVerticallyCenteredModal(props) {
           <>
             <h1 className="gradient__text " style={{ color: "#eca800" }}>Already Submitted !</h1>
             <p className="modal_right_p">
-              You have already registered for BGMI Gaming 2024 with this
+              You have already registered for BGMI Gaming 2026 with this
               account or mobile number. We will contact you very soon.
               <br />
               <br />
