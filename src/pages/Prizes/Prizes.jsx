@@ -1,7 +1,6 @@
 import React from "react";
 import { Navbar } from "../../components/Navbar/Navbar";
 import prizecss from "./Prizes.module.css";
-import cardImg from "../../assets/imgs/cca.png";
 import { Card } from "../../components/Card";
 import CashPrize from "../../assets/imgs/prizes.jpg";
 import EventDetails from "../../components/Modals/EventDetails";
@@ -13,6 +12,10 @@ const cardItems = [
     img: AarohanTshirt,
     title: "1ST PRIZE",
     subtitle: "Aarohan Tshirt Certificate and Cash Prize",
+    imgStyle: {
+      objectFit: "contain",
+      backgroundColor: "#000000",
+    },
   },
   {
     img: CashPrize,
@@ -36,7 +39,7 @@ export const Prizes = () => {
 
           <div className={prizecss.cards_container}>
             {cardItems.map((element, index) => {
-              return <Card element={element} index={index} />;
+              return <Card element={element} index={index} key={index} />;
             })}
           </div>
         </div>

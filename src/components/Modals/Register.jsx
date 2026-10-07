@@ -1,6 +1,15 @@
-import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-import React, { useState,useEffect } from "react";
+import React, { useState } from "react";
+import { db } from "../../firebase";
+import {
+  collection,
+  addDoc,
+  query,
+  where,
+  getDocs,
+  serverTimestamp,
+} from "firebase/firestore";
+import { uploadToCloudinary } from "../../util/cloudinary";
 import CloseButton from "react-bootstrap/CloseButton";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
@@ -32,7 +41,6 @@ function MyVerticallyCenteredModal(props) {
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const [formError, setFormError] = useState(false);
   const [resType, setResType] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const submitForm = (event) => {
@@ -46,32 +54,27 @@ function MyVerticallyCenteredModal(props) {
     if (
       fullName.length === 0 ||
       email.length === 0 ||
-      contactNum.length === 0||
+      contactNum.length === 0 ||
       payment.length === 0
     ) {
       toast.error("All fields are required");
-      setFormError(true);
       setIsLoading(false);
       return;
     }
 
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) === false) {
+    if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email) === false) {
       toast.error("Enter a valid Email");
       setIsLoading(false);
-      setFormError(true);
-
       return;
     }
     if (contactNum.length !== 10) {
       toast.error("Mobile Number should be of 10 digits");
       setIsLoading(false);
-      setFormError(true);
       return;
     }
 
 
     if (payment.type === "application/pdf") {
-      setFormError(true);
       toast.error("Attach Image format only");
       setIsLoading(false);
       return;
@@ -104,7 +107,7 @@ function MyVerticallyCenteredModal(props) {
               align="center"
               className="fw-bold"
               id={Registercss.congrats}
-              
+
             >
               Congratulations!
             </h2>
@@ -117,7 +120,7 @@ function MyVerticallyCenteredModal(props) {
               <br />
               <br></br>
               <a
-                href="https://chat.whatsapp.com/HiKleNJ58N50r5imSSWcIe"
+                href="https://chat.whatsapp.com/LK10cMPtA7gLwmPxWT2R1t"
                 target="blank"
                 style={{
                   textDecoration: "underline",
@@ -134,7 +137,7 @@ function MyVerticallyCenteredModal(props) {
       } else if (resType === "exists") {
         return (
           <>
-            <h1 className="gradient__text " style={{color: "#eca800"}}>Already Submitted !</h1>
+            <h1 className="gradient__text " style={{ color: "#eca800" }}>Already Submitted !</h1>
             <p className="modal_right_p">
               You have already registered for BGMI Gaming 2024 with this
               account or mobile number. We will contact you very soon.
@@ -144,7 +147,7 @@ function MyVerticallyCenteredModal(props) {
               further updates and information regarding the event.
               <br />
               <a
-                href="https://chat.whatsapp.com/HRjeqmPjE916fB95z2QQ3R"
+                href="https://chat.whatsapp.com/LK10cMPtA7gLwmPxWT2R1t"
                 target="blank"
                 style={{
                   textDecoration: "underline",
@@ -194,57 +197,74 @@ function MyVerticallyCenteredModal(props) {
     }
   };
 
-  //sendData form
-  const sendData = (token) => {
-    // let formData = new FormData();
-    console.log("token sendData", token);
-    // formData.entr
+  //sendData form with Firebase
+  const sendData = async () => {
     setIsLoading(true);
 
-    let formData = {
-      email: email,
-      name: fullName,
-      contact_number: contactNum,
-      payment: payment,
-      "g-captcha-response": isCaptchaVerified.g_captch_response,
-    };
+    try {
+      // Check if user with this email or contact_number already exists
+      const normalizedEmail = email.trim().toLowerCase();
+      const normalizedContact = contactNum.trim();
 
-    console.log("form Data", formData);
-    // return
+      const emailQuery = query(
+        collection(db, "registrations"),
+        where("email", "==", normalizedEmail)
+      );
+      const contactQuery = query(
+        collection(db, "registrations"),
+        where("contact_number", "==", normalizedContact)
+      );
 
-    var config = {
-      method: "post",
-      // url: "https://ccaaudition.ccanitd.in/api/auditions",
-      url: "https://ccaaudition.ccanitd.in/api/bgmigamingregistrionscc244b9737c2b6ef26bd0f7827653c9d27c10b7c",
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-      data: formData,
-    };
+      const [emailSnapshot, contactSnapshot] = await Promise.all([
+        getDocs(emailQuery),
+        getDocs(contactQuery),
+      ]);
 
-    axios(config)
-      .then(function (response) {
-        if (response.status === 201) {
-          setResType("success");
-        }
+      if (!emailSnapshot.empty || !contactSnapshot.empty) {
+        setResType("exists");
         setIsLoading(false);
         setIsOpen(true);
-      })
-      .catch(function (error) {
-          const r=error.response.data.message;
-          if(r?.email || r?.contact_number){
-            setResType("exists");
-          }else{
-            setResType("error");
-          }
-        setIsLoading(false);
-        setIsOpen(true);
+        return;
+      }
+
+      // Upload payment proof screenshot to Cloudinary
+      let paymentUrl = "";
+      if (payment && payment instanceof File) {
+        paymentUrl = await uploadToCloudinary(payment);
+      }
+
+      // Save registration record in Firestore
+      await addDoc(collection(db, "registrations"), {
+        name: fullName.trim(),
+        email: normalizedEmail,
+        contact_number: normalizedContact,
+        payment_proof_url: paymentUrl,
+        payment_file_name: payment?.name || "",
+        captcha_token: isCaptchaVerified.g_captch_response || "",
+        createdAt: serverTimestamp(),
       });
+
+      // Reset form fields
+      setFullName("");
+      setEmail("");
+      setContactNum("");
+      setPayment("");
+
+      setResType("success");
+      setIsLoading(false);
+      setIsOpen(true);
+    } catch (firebaseError) {
+      console.error("Firebase registration error:", firebaseError);
+      setError(
+        firebaseError?.message || "Could not register. Please try again later."
+      );
+      setResType("error");
+      setIsLoading(false);
+      setIsOpen(true);
+    }
   };
   //form submit
 
-  console.log(isOpen);
-  
   function onChange(value) {
     console.log("Captcha value:", value);
     setIsCaptchaVerified({
@@ -387,23 +407,42 @@ function MyVerticallyCenteredModal(props) {
               className={Registercss.QrCode}
             >
               <h5>Scan the QR to pay</h5>
-              <h5
+              <div
                 style={{
-                  display: "flex",
+                  textAlign: "center",
+                  maxWidth: "260px",
+                  margin: "8px 0",
                 }}
               >
-                {" "}
-                <p
+                <h6
                   style={{
-                    textDecoration: "line-through",
-                    marginRight: 5,
+                    color: "#ffffff",
+                    fontSize: "0.95rem",
+                    marginBottom: "4px",
                   }}
                 >
-                  {" "}
-                  Rs 149
+                  For single person:
+                </h6>
+                <h5
+                  style={{
+                    color: "#ff4655",
+                    fontWeight: "bold",
+                    fontSize: "1.1rem",
+                    marginBottom: "3px",
+                  }}
+                >
+                  Early bird offer: 40 Rs
+                </h5>
+                <p
+                  style={{
+                    color: "#ffc107",
+                    fontSize: "0.85rem",
+                    marginBottom: 0,
+                  }}
+                >
+                  50 Rs after 8th October 11:59PM
                 </p>
-                (Rs 100/-)
-              </h5>
+              </div>
               <img src={paymentQR} width={200} height={200} alt="Payment QR" />
             </div>
           </div>
@@ -415,7 +454,7 @@ function MyVerticallyCenteredModal(props) {
             <div
               className={Registercss.submitbtn}
               variant="primary"
-              // type="submit"
+            // type="submit"
             >
               <Spinner animation="border" size="lg" variant="danger" />
             </div>

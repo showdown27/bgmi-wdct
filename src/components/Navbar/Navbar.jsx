@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import React from 'react';
-import arhn from '../../assets/imgs/arhn logo.jpg';
-import cca from '../../assets/imgs/cca.png';
+import arhn from '../../assets/imgs/arhn-logo-2026.jpeg';
 import navcss from './Navbar.module.css';
 
 export const Navbar = () => {
@@ -15,7 +14,7 @@ export const Navbar = () => {
         <nav className={navcss.nav}>
             <div className={navcss.container}>
                 <div className={navcss.logo}>
-                    <a href="https://arhn.co.in/" target='_blank'><img src={arhn} alt="" /></a>
+                    <a href="https://arhn.co.in/" target='_blank' rel="noreferrer"><img src={arhn} alt="Aarohan 2026 Logo" /></a>
                    
                 </div>
                 <div className={`${navcss.hamburger} ${showNavLinks ? navcss.active : ''}`} onClick={toggleNavLinks}>

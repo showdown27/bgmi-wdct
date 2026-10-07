@@ -11,40 +11,61 @@ export const Card = ({ element = {}, index = 0 }) => {
     linkedin = "",
     twitter = "",
     instagram = "",
+    imgStyle = {},
   } = element || {};
   return (
     <div className={contactcss.card} key={index}>
-      {img.length !== 0 && (
+      {Boolean(img && img.length !== 0) && (
         <div className={contactcss.card__border}>
-          <img src={img} className={contactcss.card__img} />
+          <img
+            src={img}
+            alt={title || "Profile"}
+            className={contactcss.card__img}
+            style={imgStyle}
+          />
         </div>
       )}
-      {title.length !== 0 && <h3 className={contactcss.card__name}>{title}</h3>}
-      {subtitle.length !== 0 && (
+      {Boolean(title && title.length !== 0) && <h3 className={contactcss.card__name}>{title}</h3>}
+      {Boolean(subtitle && subtitle.length !== 0) && (
         <h3 className={contactcss.card__name}>{subtitle}</h3>
       )}
       <div className={contactcss.socials}>
-        {instagram.length !== 0 && (
-          <a href={instagram} target="_blank" className={contactcss.iconAnchor}>
+        {Boolean(instagram && instagram.length !== 0) && (
+          <a
+            href={instagram}
+            target="_blank"
+            rel="noreferrer"
+            className={contactcss.iconAnchor}
+          >
             <FaInstagram
               className={contactcss.icons}
-              style={{ fontSize: "30" }}
+              style={{ fontSize: "30px" }}
             />
           </a>
         )}
-        {linkedin.length !== 0 && (
-          <a href={linkedin} target="_blank" className={contactcss.iconAnchor}>
+        {Boolean(linkedin && linkedin.length !== 0) && (
+          <a
+            href={linkedin}
+            target="_blank"
+            rel="noreferrer"
+            className={contactcss.iconAnchor}
+          >
             <CiLinkedin
               className={contactcss.icons}
-              style={{ fontSize: "35" }}
+              style={{ fontSize: "35px" }}
             />
           </a>
         )}
-        {twitter.length !== 0 && (
-          <a href={twitter} target="_blank" className={contactcss.iconAnchor}>
+        {Boolean(twitter && twitter.length !== 0) && (
+          <a
+            href={twitter}
+            target="_blank"
+            rel="noreferrer"
+            className={contactcss.iconAnchor}
+          >
             <FaXTwitter
               className={contactcss.icons}
-              style={{ fontSize: "25" }}
+              style={{ fontSize: "25px" }}
             />
           </a>
         )}

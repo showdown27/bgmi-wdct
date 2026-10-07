@@ -6,7 +6,7 @@ const Timer = ({ eventDate }) => {
     const [isStarted, setIsStarted] = useState(false);
 
     const time = ["days", "hours", "minutes", "seconds"];
-    const calculateTimeLeft = () => {
+    const calculateTimeLeft = useCallback(() => {
         const difference = +new Date(eventDate) - +new Date();
         let timeLeft = {};
 
@@ -18,23 +18,20 @@ const Timer = ({ eventDate }) => {
                 seconds: Math.floor((difference / 1000) % 60),
             };
         }
-        if (difference < 0) {
+        if (difference <= 0) {
             setIsStarted(true);
         }
         setTimeLeft(timeLeft);
-    };
+    }, [eventDate]);
 
-    const getTimeLeft = useCallback(() => {
-        const timer = setTimeout(() => {
+    useEffect(() => {
+        calculateTimeLeft();
+        const timer = setInterval(() => {
             calculateTimeLeft();
         }, 1000);
 
-        return () => clearTimeout(timer);
-    }, []);
-
-    useEffect(() => {
-        getTimeLeft();
-    }, [timeLeft]);
+        return () => clearInterval(timer);
+    }, [calculateTimeLeft]);
 
     return (
         <div className={timercss.mainContainer}>

@@ -38,13 +38,13 @@ function MyVerticallyCenteredModal(props) {
             </div>
             <div className={Eventcss.rows2}>
               <h4 className={Eventcss.ReventDet}>VENUE: </h4>
-              <h4 className={Eventcss.WeventDet}> NAB 401</h4>
+              <h4 className={Eventcss.WeventDet}> NAB 402</h4>
             </div>
             <div className={Eventcss.rows3}>
               <h4 className={Eventcss.ReventDet}>TIME: </h4>
               <h4 className={Eventcss.WeventDet}>
                 {" "}
-                 10:00 AM to 6:00 PM , 10th April 2024
+                10:00 AM to 5:00 PM , 9th October 2026
               </h4>
             </div>
             <div className={Eventcss.rows4}>
@@ -55,7 +55,7 @@ function MyVerticallyCenteredModal(props) {
                 "Every setback is an opportunity to level up". Join us for an
                 exhilarating experience as Team Aavishkar presents the highly
                 anticipated BattleGrounds Mobile India (BGMI) Tournament at
-                Aarohan 2024. It's time to demonstrate your gaming prowess and
+                Aarohan 2026. It's time to demonstrate your gaming prowess and
                 go head-to-head with fellow college gamers. Gear up for the
                 ultimate gaming showdown!
               </p>
