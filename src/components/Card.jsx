@@ -1,5 +1,5 @@
 import React from "react";
-import { FaInstagram } from "react-icons/fa";
+import { FaInstagram, FaPhoneAlt } from "react-icons/fa";
 import { CiLinkedin } from "react-icons/ci";
 import { FaXTwitter } from "react-icons/fa6";
 import contactcss from '../pages/Contact/Contact.module.css'
@@ -8,6 +8,8 @@ export const Card = ({ element = {}, index = 0 }) => {
     img = "",
     title = "",
     subtitle = "",
+    phone = "",
+    phoneDisplay = "",
     linkedin = "",
     twitter = "",
     instagram = "",
@@ -28,6 +30,16 @@ export const Card = ({ element = {}, index = 0 }) => {
       {Boolean(title && title.length !== 0) && <h3 className={contactcss.card__name}>{title}</h3>}
       {Boolean(subtitle && subtitle.length !== 0) && (
         <h3 className={contactcss.card__name}>{subtitle}</h3>
+      )}
+      {Boolean(phone && phone.length !== 0) && (
+        <a
+          href={`tel:${phone.replace(/\s+/g, "")}`}
+          className={contactcss.card__phone}
+          title={`Call ${title}`}
+        >
+          <FaPhoneAlt className={contactcss.phoneIcon} />
+          <span>{phoneDisplay || phone}</span>
+        </a>
       )}
       <div className={contactcss.socials}>
         {Boolean(instagram && instagram.length !== 0) && (

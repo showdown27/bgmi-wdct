@@ -11,11 +11,15 @@ const cardItems = [
   {
     img: Nikhil,
     title: "Nikhil Kumar",
+    phone: "+917644088558",
+    phoneDisplay: "+91 76440 88558",
     instagram: "https://www.instagram.com/showdown.27/",
   },
   {
     img: Saiteja,
     title: "Saiteja Kothuri",
+    phone: "+916303019533",
+    phoneDisplay: "+91 63030 19533",
     instagram: "https://www.instagram.com/teja_eqx/",
   },
 ];
