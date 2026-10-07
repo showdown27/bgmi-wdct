@@ -22,31 +22,21 @@ import Redbtn from "../Buttons/redBtn";
 import EventDetails from "./EventDetails";
 import Registercss from "./Register.module.css";
 import { Spinner } from "react-bootstrap";
-import ReCAPTCHA from "react-google-recaptcha";
-const SITE_KEY = "6LfDoLEpAAAAAI3LGKc65_BVrEF6FnLgby2uNFv-";
-//modal body for api
 
 function MyVerticallyCenteredModal(props) {
   const [fullName, setFullName] = useState("");
-  const [isCaptchaVerified, setIsCaptchaVerified] = useState({
-    captcha: false,
-    g_captch_response: "",
-  });
-
   const [email, setEmail] = useState("");
-
   const [contactNum, setContactNum] = useState("");
-
   const [payment, setPayment] = useState("");
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [resType, setResType] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+
   const submitForm = (event) => {
     console.log("submit form");
     event.preventDefault();
-    //console.log(user);
     console.log(fullName, email, contactNum, payment);
 
     setIsLoading(true);
@@ -72,7 +62,6 @@ function MyVerticallyCenteredModal(props) {
       setIsLoading(false);
       return;
     }
-
 
     if (payment.type === "application/pdf") {
       toast.error("Attach Image format only");
@@ -107,7 +96,6 @@ function MyVerticallyCenteredModal(props) {
               align="center"
               className="fw-bold"
               id={Registercss.congrats}
-
             >
               Congratulations!
             </h2>
@@ -240,7 +228,6 @@ function MyVerticallyCenteredModal(props) {
         contact_number: normalizedContact,
         payment_proof_url: paymentUrl,
         payment_file_name: payment?.name || "",
-        captcha_token: isCaptchaVerified.g_captch_response || "",
         createdAt: serverTimestamp(),
       });
 
@@ -263,15 +250,7 @@ function MyVerticallyCenteredModal(props) {
       setIsOpen(true);
     }
   };
-  //form submit
 
-  function onChange(value) {
-    console.log("Captcha value:", value);
-    setIsCaptchaVerified({
-      captcha: true,
-      g_captch_response: value,
-    });
-  }
   return (
     <>
       <ToastContainer className={Registercss.toast1} theme="dark" />
@@ -389,13 +368,7 @@ function MyVerticallyCenteredModal(props) {
                     </Form.Control.Feedback>
                   </Form.Group>
                 </Row>
-                <ReCAPTCHA
-                  className={Registercss.recaptcha}
-                  sitekey={SITE_KEY}
-                  onChange={onChange}
-                />
               </Form>
-              ,
             </div>
             <div
               style={{
@@ -454,7 +427,6 @@ function MyVerticallyCenteredModal(props) {
             <div
               className={Registercss.submitbtn}
               variant="primary"
-            // type="submit"
             >
               <Spinner animation="border" size="lg" variant="danger" />
             </div>
@@ -464,7 +436,6 @@ function MyVerticallyCenteredModal(props) {
                 text="SUBMIT "
                 type="submit"
                 onClick={submitForm}
-                disabled={!isCaptchaVerified.captcha}
               />
             </div>
           )}
@@ -488,14 +459,10 @@ function MyVerticallyCenteredModal(props) {
             className={Registercss.Closebtn}
             variant="danger"
           ></CloseButton>
-          {/* <Modal.Title id="contained-modal-title-vcenter">
-            Modal heading
-          </Modal.Title> */}
         </Modal.Header>
         <Modal.Body className={Registercss.responseModal}>
           {modalBody()}
         </Modal.Body>
-        {/* <Button onClick={() => setIsOpen(false)}>Close</Button> */}
       </Modal>
     </>
   );
