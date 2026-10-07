@@ -370,51 +370,12 @@ function MyVerticallyCenteredModal(props) {
                 </Row>
               </Form>
             </div>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                flexDirection: "column",
-              }}
-              className={Registercss.QrCode}
-            >
-              <h5>Scan the QR to pay</h5>
-              <div
-                style={{
-                  textAlign: "center",
-                  maxWidth: "260px",
-                  margin: "8px 0",
-                }}
-              >
-                <h6
-                  style={{
-                    color: "#ffffff",
-                    fontSize: "0.95rem",
-                    marginBottom: "4px",
-                  }}
-                >
-                  For single person:
-                </h6>
-                <h5
-                  style={{
-                    color: "#ff4655",
-                    fontWeight: "bold",
-                    fontSize: "1.1rem",
-                    marginBottom: "3px",
-                  }}
-                >
-                  Early bird offer: 40 Rs
-                </h5>
-                <p
-                  style={{
-                    color: "#ffc107",
-                    fontSize: "0.85rem",
-                    marginBottom: 0,
-                  }}
-                >
-                  50 Rs after 8th October 11:59PM
-                </p>
+            <div className={Registercss.QrCode}>
+              <h5 className={Registercss.qrHeading}>Scan the QR to pay</h5>
+              <div className={Registercss.pricingBox}>
+                <h6 className={Registercss.priceSub}>For single person:</h6>
+                <h5 className={Registercss.priceMain}>Early bird offer: 40 Rs</h5>
+                <p className={Registercss.priceNote}>50 Rs after 8th October</p>
               </div>
               <img src={paymentQR} width={200} height={200} alt="Payment QR" />
             </div>

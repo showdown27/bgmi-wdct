@@ -111,6 +111,53 @@ h4{
 .container {
   display: flex;
 }
+
+.QrCode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.qrHeading {
+  font-family: bgmi;
+  color: #ffffff;
+  font-size: 1.4rem;
+  letter-spacing: 1.5px;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.pricingBox {
+  text-align: center;
+  max-width: 280px;
+  margin: 6px 0 12px 0;
+}
+
+.priceSub {
+  font-family: bgmi;
+  color: #ffffff;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.priceMain {
+  font-family: bgmi;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.25rem;
+  letter-spacing: 1.5px;
+  margin-bottom: 4px;
+}
+
+.priceNote {
+  font-family: bgmi;
+  color: #ffffff;
+  font-size: 1.05rem;
+  letter-spacing: 1px;
+  margin-bottom: 0;
+}
 @media (max-width: 994px) {
   .container {
     display: block;
