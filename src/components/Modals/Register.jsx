@@ -10,6 +10,7 @@ import {
   serverTimestamp,
 } from "firebase/firestore";
 import { uploadToCloudinary } from "../../util/cloudinary";
+import { saveToGoogleSheet } from "../../util/googleSheet";
 import CloseButton from "react-bootstrap/CloseButton";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
@@ -230,6 +231,26 @@ function MyVerticallyCenteredModal(props) {
         payment_file_name: payment?.name || "",
         createdAt: serverTimestamp(),
       });
+
+      // Also append registration to Google Sheet
+      const formattedTimestamp = new Date().toLocaleString("en-IN", {
+        timeZone: "Asia/Kolkata",
+        dateStyle: "medium",
+        timeStyle: "medium",
+      });
+
+      try {
+        await saveToGoogleSheet({
+          name: fullName.trim(),
+          email: normalizedEmail,
+          contact_number: normalizedContact,
+          payment_proof_url: paymentUrl,
+          payment_file_name: payment?.name || "",
+          createdAt: formattedTimestamp,
+        });
+      } catch (sheetError) {
+        console.warn("Google Sheet sync warning:", sheetError);
+      }
 
       // Reset form fields
       setFullName("");
